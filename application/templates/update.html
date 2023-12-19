@@ -1,0 +1,26 @@
+<table class="table datatable">
+    <thead>
+      <tr>
+        <th scope="col">NIPY</th>
+         <th scope="col">Nama</th>
+         <th scope="col">Nomor Plat</th>
+         <th scope="col">Status</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in value %}
+        <tr>
+          <form action="/update" method="POST">
+          <td><input name="nipy" placeholder="{{row[0]}}"></td>
+          <td><input name="nama" placeholder="{{row[1]}}"></td>
+          <td><input name="nomorplt" placeholder="{{row[2]}}"></td>
+          <td><input name="status" placeholder="{{row[3]}}"></td>
+          <td style="opacity: 1; width: 0px;" ><input name="asli" placeholder="{{row[1]}}"></td>
+          <td>
+            <button class="btn btn-warning btn-xs"type="submit"  data-toggle="modal" data-target="#modaledit{{row[0]}}">ubah</button>
+        </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
